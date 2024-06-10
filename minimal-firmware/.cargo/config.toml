@@ -1,0 +1,10 @@
+[target.thumbv7em-none-eabihf]
+
+# runner = "probe-rs run --chip STM32F303RETx"
+runner = "probe-rs run --chip STM32F303ZETx"
+
+[build]
+target = "thumbv7em-none-eabihf"
+
+[env]
+DEFMT_LOG = "debug"

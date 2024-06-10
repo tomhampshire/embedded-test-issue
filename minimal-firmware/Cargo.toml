@@ -1,0 +1,36 @@
+[package]
+name = "minimal-firmware"
+version = "0.1.0"
+edition = "2021"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[[test]]
+name = "simple_test"
+harness = false
+
+
+[dependencies]
+
+# Change stm32f303ze to your chip name, if necessary.
+embassy-stm32 = { version = "0.1", features = [
+  "defmt",
+  "stm32f303ze",
+  "memory-x",
+] }
+
+defmt = { version = "0.3" }
+defmt-rtt = { version = "0.4" }
+
+cortex-m = { version = "0.7", features = [
+  "inline-asm",
+  "critical-section-single-core",
+] }
+
+
+[profile.release]
+debug = 2
+incremental = false
+
+[dev-dependencies]
+embedded-test = { version = "0.4", features = ["defmt"] }
